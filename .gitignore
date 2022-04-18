@@ -1,0 +1,16 @@
+# Generated from Play project seed
+logs
+target
+/.bsp
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/RUNNING_PID
+
+# sdkmanrc for setting specific versions of java and scala
+.sdkmanrc
+
+# environment variables
+.env

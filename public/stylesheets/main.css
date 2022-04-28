@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.row {
+    --bs-gutter-x: 0 !important;
+}
+
+.form {
+    font-family: sans-serif;
+    padding: 2rem;
+}
+
+.form-control {
+    margin-bottom: 0.5rem;
+    border-radius: 15rem;
+}
+
+.form-control-textarea {
+    height: 10rem;
+    padding: 1rem;
+    border-radius: 15rem;
+}
+
+.button {
+    padding: 0.8rem 2rem;
+    background: none;
+    border: 2px solid #000;
+    color: #000;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.4s all;
+    cursor: pointer;
+}
+
+.button-secondary {
+    border-color: #aaa;
+    color: #aaa;
+}
+
+.task-list-search {
+    grid-area: search;
+    padding: 1rem;
+}
+
+.task-list-search input {
+    border: 1px solid black;
+    background-image: url(../images/icon-search.svg);
+    background-position: 15px center;
+    background-repeat: no-repeat;
+    background-size: 17px;
+    border-radius: 10px;
+    height: 3rem;
+    padding: 0 0 0 2.5rem;
+    width: 100%;
+}
+
+.task-list {
+    padding: 1rem;
+}
+
+.task {
+    overflow: hidden;
+    -webkit-box-shadow: 0px 0px 100px -45px rgba(81, 82, 81, 1);
+    -moz-box-shadow: 0px 0px 100px -45px rgba(81, 82, 81, 1);
+    box-shadow: 0px 0px 100px -45px rgba(81, 82, 81, 1);
+    background: #fff;
+    margin-bottom: 1rem;
+    border-radius: 20px;
+}
+
+.task-inside {
+    margin: 2rem;
+    word-wrap: break-word;
+    overflow: auto;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.task {
+    margin-bottom: 5px;
+}
+
+.date {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.student {
+    margin-left: 1rem;
+    font-weight: bold;
+}
+
+.task-body {
+    color: #777;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    max-height: 150px;
+}
+
+.task-edit,
+.task-delete {
+    background-position: center;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+.task-edit {
+    background-image: url(../images/icon-edit.svg);
+    background-color: rgb(225, 255, 181);
+}
+
+.task-delete {
+    background-image: url(../images/icon-trash.svg);
+    background-color: rgb(244, 141, 141);
+}
+
+.task-edit-cancel {
+    border-color: #aaa;
+    color: #aaa;
+}
+
+.task input.date,
+.task input.student,
+.task textarea.grade,
+.task textarea.review {
+    padding: 1rem;
+    height: 3rem;
+    border: 1px solid #aaa;
+    font-family: inherit;
+    border-radius: 1.5rem;
+}
+
+.task textarea.grade,
+.task textarea.review {
+    width: 100%;
+    height: 10rem;
+}

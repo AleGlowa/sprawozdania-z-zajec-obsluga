@@ -17,3 +17,14 @@ export async function apiAdd({ student, grade, review, date }) {
         throw Error(request.status)
     }
 }
+
+export async function apiDelete(id) {
+    const request = await fetch(apiURL + "/" + id, {
+        method: "delete"
+    })
+    if (request.ok) {
+        return request.json()
+    } else {
+        throw Error(request.status)
+    }
+}

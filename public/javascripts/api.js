@@ -37,3 +37,17 @@ export async function apiSearch(query) {
         throw Error(request.status)
     }
 }
+
+export async function apiEdit({ id, student, date, grade, review }) {
+    const request = await fetch(apiURL + "/" + id, {
+        method: "put",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ student, grade, date, review })
+    })
+    if (request.ok) {
+        return request.json()
+    } else {
+        throw Error(request.status)
+    }
+
+}

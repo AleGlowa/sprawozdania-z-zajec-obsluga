@@ -1,5 +1,5 @@
-import { apiAdd, apiGet, apiDelete, apiSearch } from "./api.js"
-import { renderSingle, renderList } from "./render.js"
+import { apiAdd, apiGet, apiDelete, apiSearch, apiEdit } from "./api.js"
+import { renderHTML, renderSingle, renderList } from "./render.js"
 
 apiGet().then(x => {
     renderList(x)
@@ -24,6 +24,62 @@ document.addEventListener("click", async e => {
         const task = e.target.closest(".task")
         const id = task.dataset.id
         await apiDelete(id)
+    }
+    //edytowanie zadania
+    if (e.target.classList.contains("task-edit")) {
+        const task = e.target.closest(".task")
+        const id = task.dataset.id
+        const student = task.querySelector(".student").innerHTML
+        const grade = task.querySelector(".grade").innerHTML
+        const date = task.querySelector(".date").innerHTML
+        const review = task.querySelector(".review").innerHTML
+        const data = {
+            id,
+            date,
+            student,
+            review,
+            grade
+        }
+        task.innerHTML = renderHTML(data, true)
+    }
+
+    //zapisanie edytowanego zadania
+    if (e.target.classList.contains("task-edit-save")) {
+        const task = e.target.closest(".task");
+        const id = task.dataset.id;
+        const date = task.querySelector(".date").value
+        const grade = task.querySelector(".grade").value
+        const student = task.querySelector(".student").value
+        const review = task.querySelector(".review").value
+        const data = {
+            id,
+            student,
+            grade,
+            review,
+            date
+        }
+        const request = await apiEdit(data);
+        task.classList.remove("task-edit-mode");
+        task.innerHTML = renderHTML(data, false);
+    }
+
+    //wyjscie z edytora
+    if (e.target.classList.contains("task-edit-cancel")) {
+        const task = e.target.closest(".task");
+        const id = task.dataset.id;
+        const date = task.querySelector(".date").value
+        const grade = task.querySelector(".grade").value
+        const student = task.querySelector(".student").value
+        const review = task.querySelector(".review").value
+        const data = {
+            id,
+            student,
+            grade,
+            review,
+            date
+        }
+        task.classList.remove("task-edit-mode");
+        task.innerHTML = renderHTML(data, false);
     }
 })
 

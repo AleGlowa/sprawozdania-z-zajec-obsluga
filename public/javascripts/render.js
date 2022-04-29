@@ -33,6 +33,6 @@ export function renderSingle(data) {
 export function renderList(data) {
     ul.innerHTML = ""
     data.forEach(element => {
-        renderList(element)
+        renderSingle(element)
     });
 }

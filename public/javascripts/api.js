@@ -19,9 +19,18 @@ export async function apiAdd({ student, grade, review, date }) {
 }
 
 export async function apiDelete(id) {
-    const request = await fetch(apiURL + "/" + id, {
+    const request = await fetch(URL + "/" + id, {
         method: "delete"
     })
+    if (request.ok) {
+        return request.json()
+    } else {
+        throw Error(request.status)
+    }
+}
+
+export async function apiSearch(query) {
+    const request = await fetch(URL + `?q=${query}`)
     if (request.ok) {
         return request.json()
     } else {

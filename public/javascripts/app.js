@@ -1,5 +1,5 @@
-import { apiAdd, apiGet, apiDelete } from "./api.js"
-import { renderHTML, renderSingle, renderList } from "./render.js"
+import { apiAdd, apiGet, apiDelete, apiSearch } from "./api.js"
+import { renderSingle, renderList } from "./render.js"
 
 apiGet().then(x => {
     renderList(x)
@@ -25,4 +25,10 @@ document.addEventListener("click", async e => {
         const id = task.dataset.id
         await apiDelete(id)
     }
+})
+
+const search = document.querySelector("#search")
+search.addEventListener("input", async e => {
+    const request = await apiSearch(search.value)
+    renderList(request)
 })
